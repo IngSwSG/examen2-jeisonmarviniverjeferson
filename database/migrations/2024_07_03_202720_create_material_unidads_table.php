@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('material_unidads', function (Blueprint $table) {
-            $table->id();
+        Schema::create('material_unidades', function (Blueprint $table) {
+            $table->id('idMaterialUnidad');
+            $table->integer('cantidad');
+            $table->foreignId('idUnidad')->constrained('unidades', 'idUnidad');
+            $table->foreignId('idMaterial')->constrained('materiales', 'codigo');
             $table->timestamps();
         });
     }
