@@ -13,6 +13,6 @@ class UnidadFactory extends Factory
     {
         return [
             'nombre' => $this->faker->word,
-                  ];
+            ];
     }
 }

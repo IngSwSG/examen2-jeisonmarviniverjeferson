@@ -15,7 +15,7 @@ class RequisicionFactory extends Factory
         return [
             'fecha' => $this->faker->dateTime,
             'estado' => $this->faker->word,
-            'usuario' => Usuario::factory(),
+            //'usuario' => Usuario::factory(),
         ];
     }
 }

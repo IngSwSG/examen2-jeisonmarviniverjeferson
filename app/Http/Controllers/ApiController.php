@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Material;
 
+use Illuminate\Http\Request;
+use App\Models\Material;
 abstract class Controller
 {
     public function Insertar(Request $request)
@@ -42,5 +43,11 @@ abstract class Controller
         ]);
 
         return response()->json($material, 200);
+    }
+    public function ObtenerMateriales()
+    {
+        $materiales = Material::all();
+
+        return response()->json($materiales);
     }
 }

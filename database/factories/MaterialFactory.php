@@ -17,6 +17,6 @@ class MaterialFactory extends Factory
             'descripcion' => $this->faker->sentence,
             'ubicacion' => $this->faker->address,
             'categoria' => Categoria::factory(),
-                  ];
+            ];
     }
 }
