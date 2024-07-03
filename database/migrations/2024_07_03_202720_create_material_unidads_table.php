@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('cantidad');
             $table->foreignId('idUnidad')->constrained('unidades', 'idUnidad');
             $table->foreignId('idMaterial')->constrained('materiales', 'codigo');
+            $table->foreignId('codigoPresupuesto')->constrained('presupuestos', 'codigoPresupuesto');
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('material_unidads');
+        Schema::dropIfExists('material_unidades');
     }
 };
