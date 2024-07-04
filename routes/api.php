@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ApiController;
+use App\Http\Controllers\ControladorApi;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::post('/InsertarMateriales', [ApiController::class, 'Insertar']);
-Route::put('/materiales/{id}', [ApiController::class, 'Actualizar']);
-Route::get('/ObtenerMateriales', [ApiController::class, 'ObtenerMateriales']);
+Route::post('/InsertarMateriales', [ControladorApi::class, 'Insertar']);
+Route::put('/materiales/{id}', [ControladorApi::class, 'Actualizar']);
+Route::get('/ObtenerMateriales', [ControladorApi::class, 'ObtenerMateriales']);

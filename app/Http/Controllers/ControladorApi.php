@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Material;
 
 use Illuminate\Http\Request;
-use App\Models\Material;
-use app\Http\Controllers\Controller;
-class ApiController extends Controller
+
+class ControladorApi extends Controller
 {
     public function Insertar(Request $request)
     {
