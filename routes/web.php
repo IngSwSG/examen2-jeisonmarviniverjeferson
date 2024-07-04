@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 
 Route::post('/Insertar', [ControladorApi::class, 'Insertar']);
-Route::put('/materiales/{id}', [ControladorApi::class, 'Actualizar']);
+Route::put('/Actualizar/{id}', [ControladorApi::class, 'Actualizar']);
 Route::get('/ObtenerMateriales', [ControladorApi::class, 'ObtenerMateriales']);
 
 Route::get('/csrf-token', function() {

@@ -22,10 +22,6 @@ class Unidad extends Model
         return $this->hasMany(MaterialUnidad::class, 'unidad', 'idUnidad');
     }
 
-    public function usuarios()
-    {
-        return $this->hasMany(Usuario::class, 'unidad', 'idUnidad');
-    }
 
     public function presupuestos()
     {

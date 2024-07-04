@@ -23,11 +23,11 @@ class ApiController extends Controller
             'categoria' => $request->input('categoria'),
         ]);
 
-        return response()->json($material, 201);
+        return response()->json($material, 200);
     }
 
     public function Actualizar(Request $request, $id)
-{
+    {
     try {
         $request->validate([
             'unidadMedida' => 'required|string|max:255',

@@ -18,13 +18,6 @@ class Requisicion extends Model
         'usuario',
     ];
 
-    public function usuario()
-    {
-        return $this->belongsTo(Usuario::class, 'usuario', 'idUsuario');
-    }
 
-    public function itemsRequisicion()
-    {
-        return $this->hasMany(ItemRequisicion::class, 'idRequisicion', 'idRequisicion');
-    }
+
 }
