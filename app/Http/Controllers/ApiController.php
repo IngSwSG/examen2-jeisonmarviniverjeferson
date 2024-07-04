@@ -27,7 +27,8 @@ class ApiController extends Controller
     }
 
     public function Actualizar(Request $request, $id)
-    {
+{
+    try {
         $request->validate([
             'unidadMedida' => 'required|string|max:255',
             'descripcion' => 'required|string|max:255',
@@ -36,15 +37,21 @@ class ApiController extends Controller
         ]);
 
         $material = Material::findOrFail($id);
-        $material->update([
+
+        $material->fill([
             'unidadMedida' => $request->input('unidadMedida'),
             'descripcion' => $request->input('descripcion'),
             'ubicacion' => $request->input('ubicacion'),
             'categoria' => $request->input('categoria'),
         ]);
 
-        return response()->json($material, 200);
+        $material->save();
+
+        return response()->json(['message' => 'Material actualizado exitosamente', 'material' => $material], 200);
+    } catch (\Exception $e) {
+        return response()->json(['error' => 'Error al actualizar el material: ' . $e->getMessage()], 500);
     }
+}
     public function ObtenerMateriales()
     {
         $materiales = Material::all();
