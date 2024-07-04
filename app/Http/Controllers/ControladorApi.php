@@ -9,22 +9,26 @@ class ControladorApi extends Controller
 {
     public function Insertar(Request $request)
     {
-        $request->validate([
-            'unidadMedida' => 'required|string|max:255',
-            'descripcion' => 'required|string|max:255',
-            'ubicacion' => 'required|string|max:255',
-            'categoria' => 'required|exists:categorias,idCategoria',
-        ]);
+        try {
+            $unidadMedida = $request->input('unidadMedida');
+            $descripcion = $request->input('descripcion');
+            $ubicacion = $request->input('ubicacion');
+            $categoria = $request->input('categoria');
+            
+            $material = new material();
+            $material->unidadMedida = $unidadMedida; 
+            $material->descripcion = $descripcion;
+            $material->ubicacion = $ubicacion;
+            $material->categoria = $categoria;
+            $material->save();
 
-        $material = Material::create([
-            'unidadMedida' => $request->input('unidadMedida'),
-            'descripcion' => $request->input('descripcion'),
-            'ubicacion' => $request->input('ubicacion'),
-            'categoria' => $request->input('categoria'),
-        ]);
-
-        return response()->json($material, 201);
+            return response()->json(['message' => 'Materiar insertado con éxito'], 200);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error en el servidor: ' . $e->getMessage()], 500);
+        }
+        
     }
+
 
     public function Actualizar(Request $request, $id)
     {
